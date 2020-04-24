@@ -1,0 +1,14 @@
+<layout-row id="RowLayout1">
+	<curie-table id="DynamicTable1">
+		<curie-table-column id="timestamp" header="Timestamp" sortable>
+		</curie-table-column>
+		<curie-table-column id="level" header="Level" filter>
+		</curie-table-column>
+		<curie-table-column id="message" header="Message">
+		</curie-table-column>
+		<crown-binding property="data" name="DynamicTable/getMessages" path="result/data/return1" auto-update="0" update-on-resume></crown-binding>
+		<crown-binding event="row-selected" name="DynamicTable/setSelection" path="param/args/data" auto-commit></crown-binding>
+		<crown-edpws-binding property="data" name="DynamicTable/OnNewMessages" update-on-resume></crown-edpws-binding>
+	</curie-table>
+  
+</layout-row>
