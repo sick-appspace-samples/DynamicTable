@@ -1,5 +1,6 @@
 ## DynamicTable
 Showing usage of DynamicTable UI element.
+
 ### Description
 This sample shows how the DynamicTable element can be used to visualize changing textual data in a table on the user interface.
 The DynamicTable element contains a child element DynamicTableColumn for each column. Columns have a property to enable filter or search. The data is exchanged in json format via a binding to the DynamicTable element. The id of the DynamicTableColumn must match the key in the json data. 
