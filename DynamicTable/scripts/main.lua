@@ -19,24 +19,22 @@ tmr:setPeriodic(true)
 tmr:setExpirationTime(5000)
 tmr:start()
 
---@handleOnExpired()
 local function handleOnExpired()
   -- Adding a new row for demonstration
   table.insert(messages, {message = 'System had stopped', level = "warn", timestamp = DateTime.getDateTime()})
-  
+
   -- Converting Lua table to json string
   local jsonstring = json.encode(messages)
   print("OnNewMessages: " .. jsonstring)
   -- Notify binding with new data
   Script.notifyEvent("OnNewMessages", jsonstring)
-  
+
 end
 Timer.register(tmr, "OnExpired", handleOnExpired)
 Script.serveEvent("DynamicTable.OnNewMessages", "OnNewMessages")
 
--- Function is bound to UI element and returns a json string with 
--- all table entries
---@getMessages():string
+---Function is bound to UI element and returns a json string with all table entries
+---@return string jsonstring
 local function getMessages()
   -- Converting table to json string
   local jsonstring = json.encode(messages)
@@ -46,8 +44,8 @@ local function getMessages()
 end
 Script.serveFunction("DynamicTable.getMessages", getMessages)
 
--- Function is bound to UI and prints the data of a selected row
---@setSelection(data:string):
+---Function is bound to UI and prints the data of a selected row
+---@param data string
 local function setSelection(data)
   print("setSelection:" .. data)
 end
